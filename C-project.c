@@ -3,9 +3,9 @@
 //declaration
 
  typedef struct Liste Liste;
- typedef Liste * List;
+ typedef Liste * Listo;
    struct Liste {
   int info;
-     List  suiv;
-     List pre;
+     Listo  suiv;
+     Listo pre;
    } ;
