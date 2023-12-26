@@ -9,6 +9,14 @@
      Listo  suiv;
      Listo pre;
    } ;
+
+Listo creerElement(int valeur) { 
+    Listo nouvelElement = (Listo) malloc(sizeof(Liste));
+    nouvelElement->info = valeur;
+    nouvelElement->suiv = NULL;
+    nouvelElement->pre = NULL;
+    return nouvelElement;
+
 void afficherliste(Listo L){ //du premier vers le dernier
     Listo p;
     p=L;
