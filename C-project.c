@@ -17,7 +17,7 @@ ListP creerElement(int valeur) {
     nouvelElement->pre = NULL;
     return nouvelElement;
 
-void afficherliste(ListP L){ //du premier vers le dernier
+void afficherliste(ListP *L){ //du premier vers le dernier
     ListP p;
     p=L;
     printf("l'affichage de la liste du premier element vers le dernier");
@@ -27,6 +27,13 @@ void afficherliste(ListP L){ //du premier vers le dernier
         p=p->suiv;
     }
     printf("Null");
+}
+void insertDEBUT(Listp* L, int n ) {
+    ListP nouvE=creerElement(n);
+
+    nouvE->suiv = *L;
+    (*L)->pre = nouvE;
+    *L = nouvE;
 }
  int main(){
 
