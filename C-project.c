@@ -47,12 +47,38 @@ void insererfin(ListP* tete, int valeur) {
 }
 
 //fonction qui ajoute un element au debut de la liste 
-void insertDEBUT(Listp* L, int n ) {
+void insertDEBUT(ListP* L, int n ) {
     ListP nouvE=creerElement(n);
 
     nouvE->suiv = *L;
     (*L)->pre = nouvE;
     *L = nouvE;
+}
+
+//fonction Tri qui trie la liste par ordre croissant 
+void Tri(ListP* L) {
+    ListP P = *L;
+    ListP Q = NULL;
+
+    if (P== NULL) {
+        return;
+    }
+
+    int X;
+
+    while (P != NULL) {
+        Q= P->suiv;
+
+        while (Q != NULL) {
+            if (P->info > Q->info) {
+                X = P->info;
+                P->info = Q->info;
+                Q->info = X;
+            }
+            Q= Q->suiv;
+        }
+        P = P->suiv;
+    }
 }
  int main(){
 
