@@ -81,6 +81,24 @@ void Tri(ListP* L) {
     }
 }
  int main(){
+ListP tete= NULL;
 
+    int choix, v;
+    do {
+        printf("\n*********Menu:********");
+        printf("\n1. ajouter un element ");
+        printf("\n2. trier la liste");
+        printf("\n3. sortir");
+        printf("\n\nEntrer votre choix: ");
+        scanf("%d", &choix);
+
+        switch (choice) {
+            case 1:
+                printf("\nEntrer la valeur de l 'element á ajouter: ");
+                scanf("%d", &v);
+                creerElement(&tete, v);
+                printf("\n element ajouté avec succes . la liste actuelle est: ");
+                afficherliste(tete);
+                break;
   return 0;
  }
