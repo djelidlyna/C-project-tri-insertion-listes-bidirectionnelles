@@ -92,11 +92,11 @@ ListP tete= NULL;
         printf("\n\nEntrer votre choix: ");
         scanf("%d", &choix);
 
-        switch (choice) {
+        switch (choix) {
             case 1:
                 printf("\nEntrer la valeur de l 'element á ajouter: ");
                 scanf("%d", &v);
-                creerElement(&tete, v);
+                insererfin(&tete, v);
                 printf("\n element ajouté avec succes . la liste actuelle est: ");
                 afficherliste(tete);
                 break;
