@@ -100,5 +100,19 @@ ListP tete= NULL;
                 printf("\n element ajouté avec succes . la liste actuelle est: ");
                 afficherliste(tete);
                 break;
+             case 2:
+                Tri(&tete);
+                printf("\n liste triée avec sucees. la liste actuelle est: ");
+                afficherliste(tete);
+                break;
+            case 3:
+                break;
+            default:
+                printf("\nchoix invalide.");
+        }
+    } while (choix != 3);
+
+    return 0;
+}
   return 0;
  }
