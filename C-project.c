@@ -80,6 +80,19 @@ void Tri(ListP* L) {
         P = P->suiv;
     }
 }
+ //une fonction supElem qui supprime un élément de la liste
+ void supElem(ListP *L, int position) {
+    ListP P = *L;
+    for (int i = 0; i < position - 1; i++) {
+        P = P->suiv;
+    }
+
+    ListP Q = P->suiv;
+    P->suiv = Q->suiv;
+    Q->suiv->pre = P;
+
+    free(Q);
+}
  int main(){
 ListP tete= NULL;
 
