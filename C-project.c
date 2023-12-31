@@ -96,12 +96,13 @@ void Tri(ListP* L) {
  int main(){
 ListP tete= NULL;
 
-    int choix, v;
+    int choix, v,pos;
     do {
         printf("\n*********Menu:********");
-        printf("\n1. ajouter un element ");
-        printf("\n2. trier la liste");
-        printf("\n3. sortir");
+        printf("\n1. ajouter un element  ");
+        printf("\n2. supprimer  la liste");
+        printf("\n3. trier la liste");
+        printf("\n4. sortir");
         printf("\n\nEntrer votre choix: ");
         scanf("%d", &choix);
 
@@ -114,18 +115,23 @@ ListP tete= NULL;
                 afficherliste(tete);
                 break;
              case 2:
+              peintf("donner la position de l element a supprimer");
+              scanf("%f",&pos);
+         supElem(&tete,pos);
+         printf("\n element supprimer avec succes . la liste actuelle est: ");
+                afficherliste(tete);
+             case 3:
                 Tri(&tete);
                 printf("\n liste triée avec sucees. la liste actuelle est: ");
                 afficherliste(tete);
                 break;
-            case 3:
+            case 4:
                 break;
             default:
                 printf("\nchoix invalide.");
         }
-    } while (choix != 3);
+    } while (choix != 4);
 
     return 0;
 }
-  return 0;
- }
+  
