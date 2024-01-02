@@ -16,6 +16,7 @@ ListP creerElement(int valeur) {
     nouvelElement->suiv = NULL;
     nouvelElement->pre = NULL;
     return nouvelElement;
+}
  //fonction qui affiche la liste 
 void afficherliste(ListP L){ //du premier vers le dernier
     ListP p;
@@ -46,14 +47,6 @@ void insererfin(ListP* tete, int valeur) {
     nouv->pre = p;
 }
 
-//fonction qui ajoute un element au debut de la liste 
-void insertDEBUT(ListP* L, int n ) {
-    ListP nouvE=creerElement(n);
-
-    nouvE->suiv = *L;
-    (*L)->pre = nouvE;
-    *L = nouvE;
-}
 
 //fonction Tri qui trie la liste par ordre croissant 
 void Tri(ListP* L) {
@@ -115,11 +108,12 @@ ListP tete= NULL;
                 afficherliste(tete);
                 break;
              case 2:
-              peintf("donner la position de l element a supprimer");
-              scanf("%f",&pos);
+              printf("donner la position de l element a supprimer");
+              scanf("%d",&pos);
          supElem(&tete,pos);
          printf("\n element supprimer avec succes . la liste actuelle est: ");
                 afficherliste(tete);
+         break;
              case 3:
                 Tri(&tete);
                 printf("\n liste triée avec sucees. la liste actuelle est: ");
