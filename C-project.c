@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include<malloc.h>
+
 //declaration
 
  typedef struct Liste Liste;
@@ -18,7 +19,7 @@ ListP creerElement(int valeur) {
     return nouvelElement;
 }
  //fonction qui affiche la liste 
-void afficherliste(ListP L){ //du premier vers le dernier
+void afficherliste(ListP* L){ //du premier vers le dernier
     ListP p;
     p=L;
     printf("l'affichage de la liste du premier element vers le dernier");
