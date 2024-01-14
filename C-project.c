@@ -313,6 +313,17 @@ const int largeur = 1500;
                 printf("l element d ela valeur  %d pas trouvee.\n", valeurcher);
             }
         }
+     //savoir si la souris est dans le rectangle des bouttons
+     int mouseX = GetMouseX();
+        int mouseY = GetMouseY();
+        bool isMouseOverAddButton = CheckCollisionPointRec((Vector2){mouseX, mouseY}, (Rectangle){10, longeur / 8, 120, 60});
+        bool isMouseOverInsertButton = CheckCollisionPointRec((Vector2){mouseX, mouseY}, (Rectangle){10, 2 * longeur / 8, 120, 60});
+        bool isMouseOverSortButton = CheckCollisionPointRec((Vector2){mouseX, mouseY}, (Rectangle){10, 3 * longeur / 8, 120, 60});
+        bool isMouseOverDeleteButton = CheckCollisionPointRec((Vector2){mouseX, mouseY}, (Rectangle){10, 4 * longeur  / 8, 120, 60});
+        bool isMouseOverSearchButton = CheckCollisionPointRec((Vector2){mouseX, mouseY}, (Rectangle){10, 5 * longeur / 8, 120, 60});
+
+        BeginDrawing();
+        ClearBackground(BLACK);
     return 0;
 }
   
