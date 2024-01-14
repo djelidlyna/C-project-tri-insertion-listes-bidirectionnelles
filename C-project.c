@@ -344,6 +344,37 @@ const int largeur = 1500;
         // rectangle pour boutton rechercher
         DrawRectangle(10, 5 * longeur/ 8, 120, 60, isMouseOverSearchButton ? searchButtonHoverColor : searchButtonColor);
         DrawText("Rechercher", 30, 5 * longeur  / 8 + 15, 20, WHITE);
+     // dessin saisie utilisateur
+        DrawText(valueInput, 150, longeur / 8 + 15, 30, WHITE);
+        DrawText(TextFormat("Valeur: %s", valueInput), 150, longeur  / 8 + 50, 20, WHITE);
+
+        // dessin position
+        DrawText(TextFormat("Position: %d", poscur), 150, 3 * longeur  / 8 + 15, 20, WHITE);
+
+        // dessin element de la liste 
+        ListP cur = tete;
+        int xPos = 200;
+        int yPos = longeur  / 2;
+
+        while (cur != NULL) {
+            // dissin cercle 
+            DrawCircle(xPos, yPos, 30, WHITE);
+            DrawCircleLines(xPos, yPos, 30, WHITE);
+
+            // dessin texte 
+            DrawTextEx(GetFontDefault(), TextFormat("%d", cur->info), (Vector2){xPos - MeasureText(TextFormat("%d", cur->info), 20) / 2, yPos - 20}, 20, 2, BLACK);
+
+            // dessin du chainage 
+            if (cur->pre != NULL) {
+                DrawLineEx((Vector2){xPos - 90 , yPos  - 10}, (Vector2){xPos  - 30 , yPos - 10  }, 4, PURPLE);
+                DrawLineEx((Vector2){xPos  - 90  , yPos +10  }, (Vector2){xPos -30, yPos +10 }, 4, PURPLE);
+                
+                DrawLineEx((Vector2){xPos  - 40  , yPos +20  }, (Vector2){xPos -30, yPos +10 }, 2, PURPLE);
+                DrawLineEx((Vector2){xPos  - 40  , yPos   }, (Vector2){xPos -30, yPos +10 }, 2, PURPLE);
+
+                DrawLineEx((Vector2){xPos - 90 , yPos  - 10}, (Vector2){xPos  - 80 , yPos - 20  }, 2, PURPLE);
+                DrawLineEx((Vector2){xPos - 90 , yPos  - 10}, (Vector2){xPos  - 80 , yPos   }, 2, PURPLE);
+            }
     return 0;
 }
   
