@@ -268,7 +268,51 @@ const int largeur = 1500;
     Color searchButtonHoverColor = (Color){ 186, 85, 211, 255 }; // Lighter Medium Violet
 
     ListP tete  = NULL;
+ char valueInput[16] = {0};
+    int valueInputLength = 0;
+    int poscur = 0;
 
+    SetTargetFPS(60);
+//une boucle why pour les touches pressées
+    while (!WindowShouldClose()) {
+        int key = GetKeyPressed();
+        if ((key >= KEY_ZERO && key <= KEY_NINE) || key == KEY_BACKSPACE) {
+            if (valueInputLength < 15) {
+                valueInput[valueInputLength] = (char)key;
+                valueInputLength++;
+            }
+        } else if (key == KEY_UP) {
+            poscur++;
+        } else if (key == KEY_DOWN && poscur  > 0) {
+            poscur--;
+        } else if (key == KEY_DELETE) {
+            deleteElementAtPosition(&tete, poscur);
+        } else if (key == KEY_ENTER) {
+            valueInput[valueInputLength] = '\0';
+            if (valueInputLength > 0) {
+                int value = atoi(valueInput);
+
+                if (IsKeyDown(KEY_LEFT_SHIFT)) {
+                    insertElementAtPosition(&tete, value, poscur);
+                } else {
+                    addElement(&tete, value);
+                }
+
+                memset(valueInput, 0, sizeof(valueInput));
+                valueInputLength = 0;
+            }
+        } else if (key == KEY_T) {
+            insertionSort(&tete);
+        } else if (key == KEY_R) {
+            int valeurcher = getValueInput();
+            ListP foundNode = searchElement(tete, valeurcher);
+
+            if (foundNode != NULL) {
+                printf("l element de la valeur  %d est trouvee .\n", valeurcher);
+            } else {
+                printf("l element d ela valeur  %d pas trouvee.\n", valeurcher);
+            }
+        }
     return 0;
 }
   
