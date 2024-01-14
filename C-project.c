@@ -212,6 +212,43 @@ ListP searchElement(ListP tete, int v) {
 }
 
 
+
+// Fonction pour avoir le saisie du clavier 
+int getValueInput() {
+    char input[16] = {0};
+    Rectangle inputBox = { 10, GetScreenHeight() - 40, 200, 30 };
+
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+
+        DrawText("Enter  la valeur pour la chercher dans la liste :", 10, inputBox.y - 30, 20, BLACK);
+        DrawRectangleRec(inputBox, RAYWHITE);
+        DrawText(input, inputBox.x + 10, inputBox.y + 10, 20, BLACK);
+
+        EndDrawing();
+
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            if (CheckCollisionPointRec(GetMousePosition(), inputBox)) {
+                int key = GetKeyPressed();
+                if ((key >= KEY_ZERO && key <= KEY_NINE) || (key == KEY_BACKSPACE)) {
+                    int length = (int)strlen(input);
+                    if (key == KEY_BACKSPACE && length > 0) {
+                        input[length - 1] = '\0';
+                    } else if (length < sizeof(input) - 1) {
+                        input[length] = (char)key;
+                        input[length + 1] = '\0';
+                    }
+                } else if (key == KEY_ENTER) {
+                    break;
+                }
+            }
+        }
+    }
+
+    return atoi(input);
+}
+
  int main(){
 
     return 0;
