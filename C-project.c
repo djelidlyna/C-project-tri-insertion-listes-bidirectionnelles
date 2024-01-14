@@ -166,7 +166,7 @@ void insertionSort(ListP* tete) {
 
 }
 
-/ Fonction  suppression un element a une position donnee
+// Fonction  suppression un element a une position donnee
 void deleteElementAtPosition(ListP* tete, int position) {
     if (*tete == NULL) {
         return; // la liste est vide
@@ -195,6 +195,20 @@ void deleteElementAtPosition(ListP* tete, int position) {
     }
 
     free(cur); 
+}
+
+// Fonction recherche element 
+ListP searchElement(ListP tete, int v) {
+    ListP cur = tete;
+
+    while (cur != NULL) {
+        if (cur->info == v) {
+            return cur; // retourner noeud si la valeur existe 
+        }
+        cur = cur->suiv;
+    }
+
+    return NULL; // si ce n est pas trouvee 
 }
 
 
