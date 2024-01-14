@@ -324,6 +324,26 @@ const int largeur = 1500;
 
         BeginDrawing();
         ClearBackground(BLACK);
+     
+     // rectangle pour boutton ajouter 
+        DrawRectangle(10, longeur / 8, 120, 60, isMouseOverAddButton ? addButtonHoverColor : addButtonColor);
+        DrawText("Ajouter", 30, longeur / 8 + 15, 20, WHITE);
+
+        // rectangle pour boutton inserer 
+        DrawRectangle(10, 2 * longeur / 8, 120, 60, isMouseOverInsertButton ? insertButtonHoverColor : insertButtonColor);
+        DrawText("Insérer", 30, 2 * longeur  / 8 + 15, 20, WHITE);
+
+        // rectangle pour boutton trier 
+        DrawRectangle(10, 3 * longeur / 8, 120, 60, isMouseOverSortButton ? sortButtonHoverColor : sortButtonColor);
+        DrawText("Trier", 30, 3 * longeur / 8 + 15, 20, WHITE);
+
+        // rectangle boutton supprimer 
+        DrawRectangle(10, 4 * longeur/ 8, 120, 60, isMouseOverDeleteButton ? deleteButtonHoverColor : deleteButtonColor);
+        DrawText("Supprimer", 30, 4 * longeur / 8 + 15, 20, WHITE);
+
+        // rectangle pour boutton rechercher
+        DrawRectangle(10, 5 * longeur/ 8, 120, 60, isMouseOverSearchButton ? searchButtonHoverColor : searchButtonColor);
+        DrawText("Rechercher", 30, 5 * longeur  / 8 + 15, 20, WHITE);
     return 0;
 }
   
