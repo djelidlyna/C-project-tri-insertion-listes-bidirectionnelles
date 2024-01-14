@@ -375,6 +375,22 @@ const int largeur = 1500;
                 DrawLineEx((Vector2){xPos - 90 , yPos  - 10}, (Vector2){xPos  - 80 , yPos - 20  }, 2, PURPLE);
                 DrawLineEx((Vector2){xPos - 90 , yPos  - 10}, (Vector2){xPos  - 80 , yPos   }, 2, PURPLE);
             }
+         //mise ajour pour l element suivat
+            xPos += 120;
+
+            cur = cur->suiv;
+        }
+
+        EndDrawing();
+    }
+
+    while (tete != NULL) {
+        ListP t = tete;
+        tete= tete->suiv;
+        free(t);
+    }
+
+    CloseWindow();
     return 0;
 }
   
