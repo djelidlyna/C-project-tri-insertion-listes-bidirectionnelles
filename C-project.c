@@ -166,6 +166,38 @@ void insertionSort(ListP* tete) {
 
 }
 
+/ Fonction  suppression un element a une position donnee
+void deleteElementAtPosition(ListP* tete, int position) {
+    if (*tete == NULL) {
+        return; // la liste est vide
+    }
+
+    ListP cur = *tete;
+
+    // trouver le noeud a supprimee
+    for (int i = 1; i < position && cur != NULL; i++) {
+        cur = cur->suiv;
+    }
+
+    if (cur == NULL) {
+        return; // la position est grande que la taille 
+    }
+
+    if (cur->pre != NULL) {
+        cur->pre->suiv = cur->suiv;
+    } else {
+        // si la position est a la tete de la liste 
+        *tete= cur->suiv;
+    }
+
+    if (cur->suiv != NULL) {
+        cur->suiv->pre= cur->pre;
+    }
+
+    free(cur); 
+}
+
+
  int main(){
 
     return 0;
