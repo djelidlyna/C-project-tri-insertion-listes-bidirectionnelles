@@ -250,6 +250,24 @@ int getValueInput() {
 }
 
  int main(){
+  //taille de la longeur et largeur de la fenetre
+const int largeur = 1500;
+    const int longeur = 600;
+//initialisation de la fenetre
+    InitWindow(largeur, longeur, "Raylib exemple liste bidirectionnelle");
+//les couleurs des boutton et le changement de couleur qu'on ils sont cliquées
+    Color addButtonColor = (Color){ 102, 51, 153, 255 }; // Dark Violet
+    Color addButtonHoverColor = (Color){ 153, 102, 204, 255 }; // Light Violet
+    Color insertButtonColor = (Color){ 128, 0, 128, 255 }; // Violet
+    Color insertButtonHoverColor = (Color){ 160, 32, 240, 255 }; // Lighter Violet
+    Color sortButtonColor = (Color){ 148, 0, 211, 255 }; // Medium Violet
+    Color sortButtonHoverColor = (Color){ 186, 85, 211, 255 }; // Lighter Medium Violet
+    Color deleteButtonColor = (Color){ 102, 51, 153, 255 }; // Dark Violet (changed)
+    Color deleteButtonHoverColor = (Color){ 153, 102, 204, 255 }; // Light Violet (changed)
+    Color searchButtonColor = (Color){ 160, 32, 240, 255 }; // Light Violet
+    Color searchButtonHoverColor = (Color){ 186, 85, 211, 255 }; // Lighter Medium Violet
+
+    ListP tete  = NULL;
 
     return 0;
 }
